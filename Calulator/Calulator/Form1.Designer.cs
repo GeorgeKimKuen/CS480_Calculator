@@ -29,7 +29,7 @@ namespace Calulator
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtDisplay = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -65,14 +65,16 @@ namespace Calulator
             this.button33 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // textBox1
+            // txtDisplay
             // 
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.textBox1.Location = new System.Drawing.Point(12, 31);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(400, 37);
-            this.textBox1.TabIndex = 0;
+            this.txtDisplay.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.txtDisplay.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.txtDisplay.Location = new System.Drawing.Point(12, 12);
+            this.txtDisplay.Multiline = true;
+            this.txtDisplay.Name = "txtDisplay";
+            this.txtDisplay.ReadOnly = true;
+            this.txtDisplay.Size = new System.Drawing.Size(400, 63);
+            this.txtDisplay.TabIndex = 0;
             // 
             // button1
             // 
@@ -84,7 +86,7 @@ namespace Calulator
             this.button1.TabIndex = 1;
             this.button1.Text = "1";
             this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.Click += new System.EventHandler(this.button_Num);
             // 
             // button2
             // 
@@ -116,6 +118,7 @@ namespace Calulator
             this.button4.TabIndex = 2;
             this.button4.Text = "2";
             this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button_Num);
             // 
             // button5
             // 
@@ -127,7 +130,7 @@ namespace Calulator
             this.button5.TabIndex = 3;
             this.button5.Text = "3";
             this.button5.UseVisualStyleBackColor = false;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.button5.Click += new System.EventHandler(this.button_Num);
             // 
             // button6
             // 
@@ -139,7 +142,7 @@ namespace Calulator
             this.button6.TabIndex = 4;
             this.button6.Text = "4";
             this.button6.UseVisualStyleBackColor = false;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
+            this.button6.Click += new System.EventHandler(this.button_Num);
             // 
             // button7
             // 
@@ -151,6 +154,7 @@ namespace Calulator
             this.button7.TabIndex = 5;
             this.button7.Text = "5";
             this.button7.UseVisualStyleBackColor = false;
+            this.button7.Click += new System.EventHandler(this.button_Num);
             // 
             // button8
             // 
@@ -162,7 +166,7 @@ namespace Calulator
             this.button8.TabIndex = 6;
             this.button8.Text = "6";
             this.button8.UseVisualStyleBackColor = false;
-            this.button8.Click += new System.EventHandler(this.button8_Click);
+            this.button8.Click += new System.EventHandler(this.button_Num);
             // 
             // button9
             // 
@@ -174,7 +178,7 @@ namespace Calulator
             this.button9.TabIndex = 7;
             this.button9.Text = "7";
             this.button9.UseVisualStyleBackColor = false;
-            this.button9.Click += new System.EventHandler(this.button9_Click);
+            this.button9.Click += new System.EventHandler(this.button_Num);
             // 
             // button10
             // 
@@ -186,6 +190,7 @@ namespace Calulator
             this.button10.TabIndex = 8;
             this.button10.Text = "8";
             this.button10.UseVisualStyleBackColor = false;
+            this.button10.Click += new System.EventHandler(this.button_Num);
             // 
             // button11
             // 
@@ -197,6 +202,7 @@ namespace Calulator
             this.button11.TabIndex = 9;
             this.button11.Text = "9";
             this.button11.UseVisualStyleBackColor = false;
+            this.button11.Click += new System.EventHandler(this.button_Num);
             // 
             // button12
             // 
@@ -208,6 +214,7 @@ namespace Calulator
             this.button12.TabIndex = 10;
             this.button12.Text = "0";
             this.button12.UseVisualStyleBackColor = false;
+            this.button12.Click += new System.EventHandler(this.button_Num);
             // 
             // button13
             // 
@@ -219,7 +226,7 @@ namespace Calulator
             this.button13.TabIndex = 11;
             this.button13.Text = "(-)";
             this.button13.UseVisualStyleBackColor = false;
-            this.button13.Click += new System.EventHandler(this.button13_Click);
+            this.button13.Click += new System.EventHandler(this.button_Negative);
             // 
             // button14
             // 
@@ -231,7 +238,7 @@ namespace Calulator
             this.button14.TabIndex = 12;
             this.button14.Text = ".";
             this.button14.UseVisualStyleBackColor = false;
-            this.button14.Click += new System.EventHandler(this.button14_Click);
+            this.button14.Click += new System.EventHandler(this.button_Decimal);
             // 
             // button15
             // 
@@ -242,6 +249,7 @@ namespace Calulator
             this.button15.TabIndex = 17;
             this.button15.Text = "=";
             this.button15.UseVisualStyleBackColor = true;
+            this.button15.Click += new System.EventHandler(this.button_Equal);
             // 
             // button16
             // 
@@ -252,6 +260,7 @@ namespace Calulator
             this.button16.TabIndex = 16;
             this.button16.Text = "+";
             this.button16.UseVisualStyleBackColor = true;
+            this.button16.Click += new System.EventHandler(this.button_Plus);
             // 
             // button17
             // 
@@ -262,7 +271,7 @@ namespace Calulator
             this.button17.TabIndex = 15;
             this.button17.Text = "-";
             this.button17.UseVisualStyleBackColor = true;
-            this.button17.Click += new System.EventHandler(this.button17_Click);
+            this.button17.Click += new System.EventHandler(this.button_Minus);
             // 
             // button18
             // 
@@ -273,6 +282,7 @@ namespace Calulator
             this.button18.TabIndex = 13;
             this.button18.Text = "*";
             this.button18.UseVisualStyleBackColor = true;
+            this.button18.Click += new System.EventHandler(this.button_Mult);
             // 
             // button19
             // 
@@ -293,6 +303,7 @@ namespace Calulator
             this.button20.TabIndex = 18;
             this.button20.Text = "/";
             this.button20.UseVisualStyleBackColor = true;
+            this.button20.Click += new System.EventHandler(this.button_Div);
             // 
             // button21
             // 
@@ -303,6 +314,7 @@ namespace Calulator
             this.button21.TabIndex = 19;
             this.button21.Text = "^";
             this.button21.UseVisualStyleBackColor = true;
+            this.button21.Click += new System.EventHandler(this.button_power);
             // 
             // button22
             // 
@@ -313,7 +325,7 @@ namespace Calulator
             this.button22.TabIndex = 21;
             this.button22.Text = "(";
             this.button22.UseVisualStyleBackColor = true;
-            this.button22.Click += new System.EventHandler(this.button22_Click);
+            this.button22.Click += new System.EventHandler(this.button_Left_Para);
             // 
             // button23
             // 
@@ -324,6 +336,7 @@ namespace Calulator
             this.button23.TabIndex = 20;
             this.button23.Text = ")";
             this.button23.UseVisualStyleBackColor = true;
+            this.button23.Click += new System.EventHandler(this.button_Right_Para);
             // 
             // button24
             // 
@@ -334,6 +347,7 @@ namespace Calulator
             this.button24.TabIndex = 22;
             this.button24.Text = "Log";
             this.button24.UseVisualStyleBackColor = true;
+            this.button24.Click += new System.EventHandler(this.button_Log);
             // 
             // button25
             // 
@@ -344,16 +358,18 @@ namespace Calulator
             this.button25.TabIndex = 23;
             this.button25.Text = "Ln";
             this.button25.UseVisualStyleBackColor = true;
+            this.button25.Click += new System.EventHandler(this.button_Nat_Log);
             // 
             // button26
             // 
             this.button26.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button26.Location = new System.Drawing.Point(40, 201);
+            this.button26.Location = new System.Drawing.Point(40, 254);
             this.button26.Name = "button26";
             this.button26.Size = new System.Drawing.Size(59, 35);
             this.button26.TabIndex = 27;
             this.button26.Text = "cos";
             this.button26.UseVisualStyleBackColor = true;
+            this.button26.Click += new System.EventHandler(this.button_Cos);
             // 
             // button27
             // 
@@ -364,6 +380,7 @@ namespace Calulator
             this.button27.TabIndex = 26;
             this.button27.Text = "cot";
             this.button27.UseVisualStyleBackColor = true;
+            this.button27.Click += new System.EventHandler(this.button_Cot);
             // 
             // button28
             // 
@@ -374,17 +391,18 @@ namespace Calulator
             this.button28.TabIndex = 25;
             this.button28.Text = "tan";
             this.button28.UseVisualStyleBackColor = true;
+            this.button28.Click += new System.EventHandler(this.button_Tan);
             // 
             // button29
             // 
             this.button29.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button29.Location = new System.Drawing.Point(40, 254);
+            this.button29.Location = new System.Drawing.Point(40, 201);
             this.button29.Name = "button29";
             this.button29.Size = new System.Drawing.Size(59, 35);
             this.button29.TabIndex = 24;
             this.button29.Text = "sin";
             this.button29.UseVisualStyleBackColor = true;
-            this.button29.Click += new System.EventHandler(this.button29_Click);
+            this.button29.Click += new System.EventHandler(this.button_Sin);
             // 
             // button30
             // 
@@ -395,6 +413,7 @@ namespace Calulator
             this.button30.TabIndex = 28;
             this.button30.Text = "CE";
             this.button30.UseVisualStyleBackColor = true;
+            this.button30.Click += new System.EventHandler(this.button_Clear);
             // 
             // button31
             // 
@@ -405,6 +424,7 @@ namespace Calulator
             this.button31.TabIndex = 29;
             this.button31.Text = "<-";
             this.button31.UseVisualStyleBackColor = true;
+            this.button31.Click += new System.EventHandler(this.button_Back);
             // 
             // button32
             // 
@@ -415,6 +435,7 @@ namespace Calulator
             this.button32.TabIndex = 31;
             this.button32.Text = "{";
             this.button32.UseVisualStyleBackColor = true;
+            this.button32.Click += new System.EventHandler(this.button_Left_Curl);
             // 
             // button33
             // 
@@ -425,6 +446,7 @@ namespace Calulator
             this.button33.TabIndex = 30;
             this.button33.Text = "}";
             this.button33.UseVisualStyleBackColor = true;
+            this.button33.Click += new System.EventHandler(this.button_Right_Curl);
             // 
             // Form1
             // 
@@ -464,7 +486,7 @@ namespace Calulator
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtDisplay);
             this.Name = "Form1";
             this.Text = "Calulator";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -475,7 +497,7 @@ namespace Calulator
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtDisplay;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
